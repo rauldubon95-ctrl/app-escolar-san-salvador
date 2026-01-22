@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exportación de Datos SIG</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#19232d",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b4754;
+            border-radius: 3px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white flex flex-col h-screen overflow-hidden antialiased selection:bg-primary selection:text-white">
+<!-- Top App Bar -->
+<header class="flex items-center justify-between px-4 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center truncate px-2">
+            Exportación de Datos
+        </h1>
+<button class="flex items-center justify-center h-10 px-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="text-primary text-sm font-bold leading-normal tracking-[0.015em]">Ayuda</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto pb-24">
+<!-- Summary Card Section -->
+<section class="px-4 py-4">
+<div class="flex flex-col gap-4 rounded-xl bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3441] p-5 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium uppercase tracking-wider">Registros Totales</p>
+<h2 class="text-4xl font-black text-[#111418] dark:text-white tracking-tight">142</h2>
+</div>
+<div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[28px]">analytics</span>
+</div>
+</div>
+<div class="w-full bg-[#e5e7eb] dark:bg-[#3b4754] h-1.5 rounded-full overflow-hidden mt-2">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex justify-between items-center text-xs text-[#637588] dark:text-[#9dabb9]">
+<span>Meta: 165 Escuelas</span>
+<span>85% Completado</span>
+</div>
+</div>
+</section>
+<!-- Action Section -->
+<section class="px-4 pb-6">
+<button class="relative w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 active:scale-[0.98] transition-all rounded-xl h-14 px-6 shadow-lg shadow-primary/20 group">
+<span class="material-symbols-outlined text-white text-[24px]">table_view</span>
+<span class="text-white text-base font-bold leading-normal tracking-[0.015em]">Exportar a Excel (.xlsx)</span>
+</button>
+<div class="flex items-center justify-center gap-2 mt-4">
+<span class="material-symbols-outlined text-green-500 text-[18px]">cloud_done</span>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium">Todos los datos sincronizados</p>
+</div>
+</section>
+<!-- Recent Records List -->
+<section class="flex flex-col gap-2">
+<div class="px-4 flex items-center justify-between pb-2">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Registros Recientes</h3>
+<button class="text-primary text-sm font-medium">Ver todo</button>
+</div>
+<div class="flex flex-col divide-y divide-[#e5e7eb] dark:divide-[#2a3441]">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#e5e7eb] dark:bg-[#2a3441] shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-base font-semibold truncate">C.E. San Francisco</p>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm truncate">Distrito 1 • San Salvador Centro</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<p class="text-[#111418] dark:text-white text-sm font-medium">10:30 AM</p>
+<span class="inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-500 ring-1 ring-inset ring-green-500/20 mt-1">Nuevo</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#e5e7eb] dark:bg-[#2a3441] shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-base font-semibold truncate">C.E. Las Américas</p>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm truncate">Distrito 2 • San Salvador Centro</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium">Ayer</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#e5e7eb] dark:bg-[#2a3441] shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-base font-semibold truncate">Instituto Nacional</p>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm truncate">Distrito 1 • San Salvador Centro</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium">12 Oct</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-[#e5e7eb] dark:bg-[#2a3441] shrink-0 text-[#111418] dark:text-white">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-[#111418] dark:text-white text-base font-semibold truncate">Colegio Santa Cecilia</p>
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm truncate">Distrito 3 • San Salvador Centro</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<p class="text-[#637588] dark:text-[#9dabb9] text-sm font-medium">11 Oct</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-surface-light dark:bg-surface-dark border-t border-[#e5e7eb] dark:border-[#2a3441] pb-safe pt-2 px-6 z-20">
+<div class="flex justify-between items-center h-14">
+<a class="flex flex-col items-center gap-1 text-[#637588] dark:text-[#9dabb9] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">map</span>
+<span class="text-[10px] font-medium">Mapa</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#637588] dark:text-[#9dabb9] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">add_circle</span>
+<span class="text-[10px] font-medium">Captura</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px] fill-current">ios_share</span>
+<span class="text-[10px] font-medium">Exportar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#637588] dark:text-[#9dabb9] hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</a>
+</div>
+<!-- Safe area spacer for iOS home indicator -->
+<div class="h-4 w-full"></div>
+</nav>
+</body></html>

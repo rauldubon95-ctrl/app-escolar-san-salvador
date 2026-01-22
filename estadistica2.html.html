@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estadísticas por Distrito</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13b6ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "card-dark": "#1a262b", // Custom card color blending with theme
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for clean mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-white">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-white/5">
+<!-- Header -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-white/5">
+<button class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Estadísticas</h2>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-primary">
+<span class="material-symbols-outlined text-[24px]">filter_list</span>
+</button>
+</div>
+<!-- Hero Stats -->
+<div class="flex flex-col gap-4 p-4 pt-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-card-dark shadow-sm border border-slate-200 dark:border-white/5 relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-6 -top-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal mb-1">Total Escuelas Mapeadas</p>
+<p class="text-slate-900 dark:text-white tracking-tight text-4xl font-bold leading-tight">1,420</p>
+</div>
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-2 relative z-10">
+<span class="flex items-center text-emerald-500 text-sm font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span>
+                        +12
+                    </span>
+<p class="text-slate-400 text-sm font-medium">registradas hoy</p>
+</div>
+</div>
+</div>
+<!-- Chart Section -->
+<div class="px-4 py-2">
+<div class="flex items-center justify-between mb-4 px-1">
+<h2 class="text-slate-900 dark:text-white tracking-tight text-xl font-bold leading-tight">Comparativa por Distrito</h2>
+<button class="text-primary text-sm font-semibold hover:text-primary/80">Ver todo</button>
+</div>
+<div class="flex flex-col rounded-xl bg-white dark:bg-card-dark p-5 border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex justify-between items-end mb-2">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Escuelas Registradas</p>
+<div class="flex gap-2">
+<span class="size-2 rounded-full bg-primary mt-1.5"></span>
+<span class="text-xs text-slate-400">Actual</span>
+</div>
+</div>
+<!-- Chart Bars Container -->
+<div class="grid grid-cols-5 gap-3 items-end h-[160px] mt-4 pb-2">
+<!-- S.S. (San Salvador) - Max Value 450 (100%) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group cursor-pointer">
+<div class="w-full bg-slate-100 dark:bg-slate-700/30 rounded-t-sm rounded-b-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary hover:bg-primary/90 transition-all duration-500 ease-out rounded-t-sm" style="height: 100%;"></div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">S.S.</p>
+</div>
+<!-- Mej. (Mejicanos) - Value 320 (~71%) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group cursor-pointer">
+<div class="w-full bg-slate-100 dark:bg-slate-700/30 rounded-t-sm rounded-b-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary hover:bg-primary/90 transition-all duration-500 ease-out rounded-t-sm" style="height: 71%;"></div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">Mej.</p>
+</div>
+<!-- C.D. (Ciudad Delgado) - Value 210 (~46%) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group cursor-pointer">
+<div class="w-full bg-slate-100 dark:bg-slate-700/30 rounded-t-sm rounded-b-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary hover:bg-primary/90 transition-all duration-500 ease-out rounded-t-sm" style="height: 46%;"></div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">C.D.</p>
+</div>
+<!-- Cus. (Cuscatancingo) - Value 180 (~40%) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group cursor-pointer">
+<div class="w-full bg-slate-100 dark:bg-slate-700/30 rounded-t-sm rounded-b-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary hover:bg-primary/90 transition-all duration-500 ease-out rounded-t-sm" style="height: 40%;"></div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">Cus.</p>
+</div>
+<!-- Ayu. (Ayutuxtepeque) - Value 160 (~35%) -->
+<div class="flex flex-col items-center gap-2 h-full justify-end group cursor-pointer">
+<div class="w-full bg-slate-100 dark:bg-slate-700/30 rounded-t-sm rounded-b-sm relative h-full flex items-end overflow-hidden">
+<div class="w-full bg-primary hover:bg-primary/90 transition-all duration-500 ease-out rounded-t-sm" style="height: 35%;"></div>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">Ayu.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- District Details List -->
+<div class="flex flex-col px-4 pt-4 pb-8">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight px-1 text-left pb-3">Detalle por Distrito</h2>
+<div class="flex flex-col gap-3">
+<!-- Card 1: San Salvador -->
+<div class="group flex items-center p-4 bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-white/5 active:scale-[0.99] transition-transform shadow-sm">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500 dark:bg-blue-500/20 dark:text-blue-400">
+<span class="material-symbols-outlined">location_city</span>
+</div>
+<div class="ml-4 flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-slate-900 dark:text-white font-semibold truncate">San Salvador</h3>
+<span class="text-slate-900 dark:text-white font-bold">450</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 85%"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 w-8 text-right">85%</span>
+</div>
+</div>
+<div class="ml-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 2: Mejicanos -->
+<div class="group flex items-center p-4 bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-white/5 active:scale-[0.99] transition-transform shadow-sm">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-teal-500/10 text-teal-500 dark:bg-teal-500/20 dark:text-teal-400">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="ml-4 flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-slate-900 dark:text-white font-semibold truncate">Mejicanos</h3>
+<span class="text-slate-900 dark:text-white font-bold">320</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 rounded-full" style="width: 60%"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 w-8 text-right">60%</span>
+</div>
+</div>
+<div class="ml-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 3: Ciudad Delgado -->
+<div class="group flex items-center p-4 bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-white/5 active:scale-[0.99] transition-transform shadow-sm">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-500 dark:bg-indigo-500/20 dark:text-indigo-400">
+<span class="material-symbols-outlined">terrain</span>
+</div>
+<div class="ml-4 flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-slate-900 dark:text-white font-semibold truncate">Ciudad Delgado</h3>
+<span class="text-slate-900 dark:text-white font-bold">210</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 45%"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 w-8 text-right">45%</span>
+</div>
+</div>
+<div class="ml-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 4: Cuscatancingo -->
+<div class="group flex items-center p-4 bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-white/5 active:scale-[0.99] transition-transform shadow-sm">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-purple-500/10 text-purple-500 dark:bg-purple-500/20 dark:text-purple-400">
+<span class="material-symbols-outlined">domain</span>
+</div>
+<div class="ml-4 flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-slate-900 dark:text-white font-semibold truncate">Cuscatancingo</h3>
+<span class="text-slate-900 dark:text-white font-bold">180</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-purple-500 rounded-full" style="width: 40%"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 w-8 text-right">40%</span>
+</div>
+</div>
+<div class="ml-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+<!-- Card 5: Ayutuxtepeque -->
+<div class="group flex items-center p-4 bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-white/5 active:scale-[0.99] transition-transform shadow-sm">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500 dark:bg-orange-500/20 dark:text-orange-400">
+<span class="material-symbols-outlined">holiday_village</span>
+</div>
+<div class="ml-4 flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-slate-900 dark:text-white font-semibold truncate">Ayutuxtepeque</h3>
+<span class="text-slate-900 dark:text-white font-bold">160</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-orange-500 rounded-full" style="width: 90%"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 w-8 text-right">90%</span>
+</div>
+</div>
+<div class="ml-2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Action Button -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="flex items-center justify-center size-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<div class="h-10 bg-transparent"></div>
+</div>
+</body></html>
